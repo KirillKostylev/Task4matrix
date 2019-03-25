@@ -3,10 +3,8 @@ package by.bntu.fitr.povt.kostylev.task1.model;
 
 import by.bntu.fitr.povt.kostylev.task1.model.entity.Matrix;
 
-import java.util.Arrays;
-
 public class MatrixLogic {
-    public static int findMultiplication(Matrix matrix) {
+    public static int findIndexMinMultiplication(Matrix matrix) {
         matrix.getClass().getSimpleName();
         double[] arrayOfMultiply = new double[matrix.getCountRows()];
         for (int i = 0; i < matrix.getCountRows(); i++) {
@@ -26,18 +24,6 @@ public class MatrixLogic {
             }
         }
         return indexMinElement;
-
-//        for (int i = 0; i < arr.length; i++) {
-//            int resultMultiplication = 1;
-//            int minResultMultiplication = 1;
-//            for (int j = 0; j < arr[i].length; j++) {
-//                resultMultiplication *= arr[j][i];
-//            }
-//            if (minResultMultiplication > resultMultiplication) {
-//                minResultMultiplication = resultMultiplication;
-//                return minResultMultiplication;
-//            }
-//        }
 
     }
 

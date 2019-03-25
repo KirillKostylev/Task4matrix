@@ -26,6 +26,6 @@ public class MatrixLogicTest {
                 {4, 15, 6},
                 {1, 15, 1}};
         Matrix matrix = new Matrix(arr);
-        assertEquals(2, MatrixLogic.findMultiplication(matrix));
+        assertEquals(2, MatrixLogic.findIndexMinMultiplication(matrix));
     }
 }

@@ -32,7 +32,7 @@ public class MatrixLogic {
         label:
         for (int i = 0; i < matrix.getCountRows(); i++) {
             for (int j = 0; j < matrix.getCountColumns(); j++) {
-                if (matrix.getElement(i, j) > n) {
+                if (Math.abs(matrix.getElement(i, j)) > n) {
                     answer = false;
                     break label;
                 }

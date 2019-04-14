@@ -5,8 +5,8 @@ import by.bntu.fitr.povt.kostylev.task1.model.exceptions.WrongDimensionException
 
 public class Matrix {
     public static final int DEFAULT_SIZE = 5;
-    private static final String NULL_ARRAY = "Empty array error.";
-    private static final String INVALID_DIMENSION = "The number of rows and columns should be positive";
+    public static final String NULL_ARRAY = "Empty array error.";
+    public static final String INVALID_DIMENSION = "The number of rows and columns should be positive";
 
     private double[][] array;
 

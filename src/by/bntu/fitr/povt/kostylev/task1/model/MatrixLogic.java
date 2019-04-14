@@ -5,7 +5,7 @@ import by.bntu.fitr.povt.kostylev.task1.model.entity.Matrix;
 import by.bntu.fitr.povt.kostylev.task1.model.exceptions.NullMatrixException;
 
 public class MatrixLogic {
-    private final static String NULL_EXCEPTION_MSG = "Null is not allowed.";
+    public final static String NULL_EXCEPTION_MSG = "Null is not allowed.";
 
     public static int findIndexMinMultiplication(Matrix matrix, double n) throws NullMatrixException {
         checkForNull(matrix);

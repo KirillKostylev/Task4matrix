@@ -5,7 +5,7 @@ import by.bntu.fitr.povt.kostylev.task1.model.exceptions.NullMatrixException;
 import by.bntu.fitr.povt.kostylev.task1.model.exceptions.WrongDimensionException;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MatrixLogicTest {
 
@@ -33,10 +33,10 @@ public class MatrixLogicTest {
     @Test
     public void findIndexMinMultiplication3() {
         try {
-            MatrixLogic.findIndexMinMultiplication(null, 5.2);
-            fail();
+            MatrixLogic.findIndexMinMultiplication(null, 10);
+            //fail();
         } catch (NullMatrixException ex) {
-            assertNotEquals("", ex.getMessage());
+            assertEquals(MatrixLogic.NULL_EXCEPTION_MSG, ex.getMessage());
         }
     }
 
@@ -45,9 +45,9 @@ public class MatrixLogicTest {
 
         try {
             MatrixLogic.findIndexMinMultiplication(new Matrix(0,3), 5);
-            fail();
+            //fail();
         } catch (WrongDimensionException ex) {
-            assertNotEquals("", ex.getMessage());
+            assertEquals(Matrix.INVALID_DIMENSION, ex.getMessage());
         }
     }
 }

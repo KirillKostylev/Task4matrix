@@ -2,32 +2,37 @@ package by.bntu.fitr.povt.kostylev.task1.model;
 
 
 import by.bntu.fitr.povt.kostylev.task1.model.entity.Matrix;
+import by.bntu.fitr.povt.kostylev.task1.model.exceptions.NullMatrixException;
 
 public class MatrixLogic {
-    public static int findIndexMinMultiplication(Matrix matrix) {
-        matrix.getClass().getSimpleName();
-        double[] arrayOfMultiply = new double[matrix.getCountRows()];
-        for (int i = 0; i < matrix.getCountRows(); i++) {
-            arrayOfMultiply[i] = 1;
-            for (int j = 0; j < matrix.getCountColumns(); j++) {
-                arrayOfMultiply[i] *= matrix.getElement(j, i);
+    private final static String NULL_EXCEPTION_MSG = "Null is not allowed.";
+
+    public static int findIndexMinMultiplication(Matrix matrix, double n) throws NullMatrixException {
+        checkForNull(matrix);
+        int ans = -1;
+        if (equalsIntegerNumberAndArray(n, matrix)) {
+            double[] arrayOfMultiply = new double[matrix.getCountColumns()];
+            for (int i = 0; i < matrix.getCountColumns(); i++) {
+                arrayOfMultiply[i] = 1;
+                for (int j = 0; j < matrix.getCountRows(); j++) {
+                    arrayOfMultiply[i] *= matrix.getElement(j, i);
+                }
             }
-        }
-
-        int indexMinElement = 0;
-        double minElement = arrayOfMultiply[indexMinElement];
-        for (int i = 0; i < arrayOfMultiply.length; i++) {
-            if (minElement > arrayOfMultiply[i]) {
-                minElement = arrayOfMultiply[i];
-                indexMinElement = i;
-
+            int indexMinElement = 0;
+            double minElement = arrayOfMultiply[indexMinElement];
+            for (int i = 0; i < arrayOfMultiply.length; i++) {
+                if (minElement > arrayOfMultiply[i]) {
+                    minElement = arrayOfMultiply[i];
+                    indexMinElement = i;
+                }
             }
+            ans = indexMinElement;
         }
-        return indexMinElement;
-
+        return ans;
     }
 
-    public static boolean equalsIntegerNumberAndArray(double n, Matrix matrix) {
+    private static boolean equalsIntegerNumberAndArray(double n, Matrix matrix) throws NullMatrixException {
+        checkForNull(matrix);
         boolean answer = true;
         label:
         for (int i = 0; i < matrix.getCountRows(); i++) {
@@ -39,5 +44,11 @@ public class MatrixLogic {
             }
         }
         return answer;
+    }
+
+    private static void checkForNull(Matrix matrix) throws NullMatrixException {
+        if (matrix == null) {
+            throw new NullMatrixException(NULL_EXCEPTION_MSG);
+        }
     }
 }
